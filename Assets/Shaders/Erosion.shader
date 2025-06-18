@@ -10,10 +10,14 @@ Shader "Unlit/Erosuion"
         _DstFactor("Dst Factor",Float) = 10
         [Enum(UnityEngine.Rendering.BlendOp)]
         _Opp("Operation",Float) = 0
+
+        _RevealValue("Reveal",Float) =0
+        _Smoothness("Smoothness",Float) = 0
+        _ErodeColor("Erode Color",Color)=(1,1,1,1)
     }
     SubShader
     {
-        Tags { "RenderType"="Opaque" }
+        Tags { "RenderType"="Opaque" "RenderType"="Transparent"}
         LOD 100
         Blend [_SrcFactor] [_DstFactor]
         BlendOp [_Opp]
@@ -44,6 +48,9 @@ Shader "Unlit/Erosuion"
 
             sampler2D _MaskTex;
             float4 _MaskTex_ST;
+
+            float _RevealValue,_Smoothness;
+            float4 _ErodeColor;
             v2f vert (appdata v)
             {
                 v2f o;
@@ -59,7 +66,13 @@ Shader "Unlit/Erosuion"
                 // sample the texture
                 fixed4 col = tex2D(_MainTex, i.uv.xy);
                 fixed4 mask = tex2D(_MaskTex, i.uv.zw);
-                return fixed4(col.rgb,col.a* mask.r);
+                //float revealAmount = smoothstep(mask.r-_Smoothness,mask.r+_Smoothness,_RevealValue);
+                float revealAmountTop = step(mask.r,_RevealValue+_Smoothness);
+                float revealAmountBottom = step(mask.r,_RevealValue-_Smoothness);
+                float revealDifference = revealAmountTop-revealAmountBottom;
+                float3 finalCol = lerp(col.rgb,_ErodeColor,revealDifference);
+               
+                return fixed4(finalCol.rgb,col.a* revealAmountTop);
             }
             ENDCG
         }
