@@ -8,6 +8,15 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/MainMenu.unity
     guid: 99c9720ab356a0642a771bea13969a05
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_01.unity
+    guid: 23c29c5249c17a14a8c23da711343dca
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_02.unity
+    guid: 06232f502ece8944d80f9cb0c32307ac
+  - enabled: 1
+    path: Assets/Scenes/Puzzle_03.unity
+    guid: bdc11c95f6fa8af40af64031119c5365
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
