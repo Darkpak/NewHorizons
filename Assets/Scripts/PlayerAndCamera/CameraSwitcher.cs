@@ -7,19 +7,6 @@ public static class CameraSwitcher
     static List<CinemachineCamera> cameras = new List<CinemachineCamera>();
     static CinemachineCamera currentCamera;
 
-
-    public static void RegisterCamera(CinemachineCamera camera)
-    {
-        Debug.Log($"Camera: {camera} registered!");
-        cameras.Add(camera);
-
-    }
-    public static void UnregisterCamera(CinemachineCamera camera)
-    {
-        Debug.Log($"Camera: {camera} unregistered!");
-        cameras.Remove(camera);
-    }
-
     public static void SetInitialCamera(CinemachineCamera camera)
     {
         foreach (var cam in cameras)
@@ -29,12 +16,16 @@ public static class CameraSwitcher
 
         currentCamera = camera;
         currentCamera.Priority = 10;
+        Debug.Log($"Going to {camera}");
     }
 
     public static void SwitchCamera(CinemachineCamera newCamera)
     {
         if (currentCamera == newCamera)
-            return;
+        {
+            newCamera.Priority = 10;
+            return; 
+        }
 
         foreach (var cam in cameras)
         {

@@ -12,24 +12,4 @@ public class PlayerCameras : MonoBehaviour
     {
         instance = this;
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-    private void OnEnable()
-    {
-        foreach (CinemachineCamera cam in cameras)
-        {
-            CameraSwitcher.RegisterCamera(cam);
-        }
-    }
-    private void OnDisable()
-    {
-        foreach(CinemachineCamera cam in cameras)
-        {
-            CameraSwitcher.UnregisterCamera(cam); 
-        }
-    }
 }
