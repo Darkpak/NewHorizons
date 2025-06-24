@@ -63,7 +63,7 @@ Shader "Unlit/Erosuion"
 
             fixed4 frag (v2f i) : SV_Target
             {
-                // sample the texture
+
                 fixed4 col = tex2D(_MainTex, i.uv.xy);
                 fixed4 mask = tex2D(_MaskTex, i.uv.zw);
                 //float revealAmount = smoothstep(mask.r-_Smoothness,mask.r+_Smoothness,_RevealValue);
@@ -71,10 +71,11 @@ Shader "Unlit/Erosuion"
                 float revealAmountBottom = step(mask.r,_RevealValue-_Smoothness);
                 float revealDifference = revealAmountTop-revealAmountBottom;
                 float3 finalCol = lerp(col.rgb,_ErodeColor,revealDifference);
-               
+                
                 return fixed4(finalCol.rgb,col.a* revealAmountTop);
             }
             ENDCG
         }
     }
+    Fallback"VertexLit"
 }
