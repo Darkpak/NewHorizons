@@ -15,9 +15,9 @@ public class ErosionManipulator : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (destroyChains)
+        if (destroyChains&& reveal>0)
         {
-            erosionMaterial.SetFloat("_RevealValue", reveal);
+            erosionMaterial.SetFloat("_Erosion", reveal);
             reveal -= 0.3f*Time.deltaTime;
         }
         

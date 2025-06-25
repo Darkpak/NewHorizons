@@ -70,10 +70,14 @@ Material:
     - _Glow: 5
     - _NormalPower: 0
     - _NormalStrength: 0.005
+    - _PulseAmplitude: 0
+    - _PulseSpeed: 2
+    - _Pulse_Value: 0
     - _QueueControl: 0
     - _QueueOffset: 0
     - _Smoothness: 0.5
     m_Colors:
     - _ErosionEdgeColor: {r: 0, g: 0.75001526, b: 1, a: 1}
+    - _OutMinMax: {r: 0, g: 0.1, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
