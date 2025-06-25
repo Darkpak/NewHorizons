@@ -11,10 +11,16 @@ public class GetRotated : MonoBehaviour
 
     public void RotateRight()
     {
-        objectToRotate.transform.Rotate(0, transform.rotation.y-15, 0);
+        if (objectToRotate != null)
+        {
+            objectToRotate.transform.Rotate(0, transform.rotation.y - 15, 0);
+        }
     }
     public void RotateLeft()
     {
-        objectToRotate.transform.Rotate(0, transform.rotation.y + 15, 0);
+        if (objectToRotate != null)
+        {
+            objectToRotate.transform.Rotate(0, transform.rotation.y + 15, 0);
+        }
     }
 }

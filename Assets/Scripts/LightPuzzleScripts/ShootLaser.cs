@@ -2,18 +2,17 @@ using UnityEngine;
 
 public class ShootLaser : MonoBehaviour
 {
-
     public Material material;
-    LaserBeam beam;
 
-    // Update is called once per frame
+    private LaserBeam beam;
+
+    void Start()
+    {
+        beam = new LaserBeam(material);
+    }
+
     void Update()
     {
-        var oldBeam = GameObject.Find("Laser Beam");
-        if (oldBeam != null)
-            Destroy(oldBeam);
-
-        beam = new LaserBeam(transform.position, transform.right, material);
-
+        beam.UpdateBeam(transform.position, transform.right);
     }
 }
