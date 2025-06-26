@@ -25,7 +25,7 @@ public class SceneLoader : MonoBehaviour
             case ButtonType.LoadScene:
                 Debug.Log("Loading Scene");
                 yield return new WaitForSeconds(loadingTime);
-                SceneManager.LoadScene(sceneToLoad);
+                SceneManager.LoadSceneAsync(sceneToLoad);
                 break;
             default:
                 break;
