@@ -42,16 +42,16 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _Metallic: 0.596
+    - _Metallic: 0.36
     - _Parallax_Amp: 20
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _Smoothness: 0.624
+    - _Smoothness: 0.73
     - _Steps: 5
-    - _Transperancy: 1
+    - _Transperancy: 0.8
     m_Colors:
-    - _CrystalColor: {r: 0, g: 0, b: 0, a: 0}
-    - _EmissionColor: {r: 157.5865, g: 0, b: 0, a: 0}
+    - _CrystalColor: {r: 0.55383915, g: 0.6037736, b: 0.10442615, a: 0}
+    - _EmissionColor: {r: 205.51157, g: 2.1519537, b: 0, a: 0}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &6885181249235785559
