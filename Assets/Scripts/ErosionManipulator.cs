@@ -12,8 +12,7 @@ public class ErosionManipulator : MonoBehaviour
     void Update()
     {
         if (destroyChains&& reveal>0)
-        {
-            
+        {  
             erosionMaterial.SetFloat("_Erosion", reveal);
             reveal -= 0.3f*Time.deltaTime;
             if (!soundTriggered)
@@ -23,5 +22,10 @@ public class ErosionManipulator : MonoBehaviour
             }
         }
         
+    }
+
+    public void DestroyErosion()
+    {
+        destroyChains = true;
     }
 }

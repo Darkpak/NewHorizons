@@ -3,10 +3,16 @@ using UnityEngine;
 public class GetRotated : MonoBehaviour
 {
     private GameObject objectToRotate;
+    private ParticleSystem particleSystem;
 
-    public void GetObjectToRotate(GameObject go)
+    public void GetObjectToRotate(GameObject go,ParticleSystem ps)
     {
+        if(particleSystem != null)
+        {
+            particleSystem.gameObject.SetActive(false);
+        }
         objectToRotate = go;
+        particleSystem = ps;
     }
 
     public void RotateRight()

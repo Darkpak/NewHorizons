@@ -17,6 +17,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Puzzle_03.unity
     guid: bdc11c95f6fa8af40af64031119c5365
+  - enabled: 0
+    path: Assets/Scenes/IcoTests.unity
+    guid: b2e5204a93c675c49a491f9f8e2d3fad
   m_configObjects:
     com.unity.input.settings.actions: {fileID: -944628639613478452, guid: 052faaac586de48259a63d0c4782560b, type: 3}
   m_UseUCBPForAssetBundles: 0
