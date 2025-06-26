@@ -3492,7 +3492,6 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 414758358}
-  - {fileID: 5521564874960841037}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1136316168
@@ -4179,7 +4178,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Puzzle_02
-  loadingTime: 5
+  loadingTime: 4
   onLoadScene:
     m_PersistentCalls:
       m_Calls:
@@ -4207,17 +4206,29 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 629867339}
-        m_TargetAssemblyTypeName: Unity.Cinemachine.CinemachineVirtualCameraBase,
-          Unity.Cinemachine
+      - m_Target: {fileID: 1869411847}
+        m_TargetAssemblyTypeName: PlayerCameras, Assembly-CSharp
         m_MethodName: Prioritize
-        m_Mode: 1
+        m_Mode: 2
+        m_Arguments:
+          m_ObjectArgument: {fileID: 629867339}
+          m_ObjectArgumentAssemblyTypeName: Unity.Cinemachine.CinemachineCamera,
+            Unity.Cinemachine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5521564874960841039}
+        m_TargetAssemblyTypeName: UnityEngine.Animator, UnityEngine
+        m_MethodName: Play
+        m_Mode: 5
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
           m_IntArgument: 0
           m_FloatArgument: 0
-          m_StringArgument: 
+          m_StringArgument: Going
           m_BoolArgument: 1
         m_CallState: 2
   buttonType: 1
@@ -7283,7 +7294,7 @@ PrefabInstance:
   serializedVersion: 2
   m_Modification:
     serializedVersion: 3
-    m_TransformParent: {fileID: 1133690325}
+    m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 5123351075507861385, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_Name
@@ -7298,16 +7309,24 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
+      propertyPath: m_LocalScale.x
+      value: 1.2999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
+      propertyPath: m_LocalScale.z
+      value: 1.2999998
+      objectReference: {fileID: 0}
+    - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -18.963999
+      value: -11.003999
       objectReference: {fileID: 0}
     - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.75
+      value: 7.32
       objectReference: {fileID: 0}
     - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 66.934074
+      value: 7.5940742
       objectReference: {fileID: 0}
     - target: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_LocalRotation.w
@@ -7337,6 +7356,10 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8924141033013716692, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
+      propertyPath: m_Animation
+      value: 
+      objectReference: {fileID: 7400000, guid: f85ddd1a462e72e4fb8fb92343a8ae9f, type: 2}
     - target: {fileID: 8924141033013716692, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
       propertyPath: m_PlayAutomatically
       value: 0
@@ -8000,9 +8023,9 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 11.064023, y: 8.523148, z: 7.499267}
   m_Center: {x: 0.00000071525574, y: 0.000061035156, z: 0}
---- !u!4 &5521564874960841037 stripped
-Transform:
-  m_CorrespondingSourceObject: {fileID: 7820949896285742000, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
+--- !u!95 &5521564874960841039 stripped
+Animator:
+  m_CorrespondingSourceObject: {fileID: 6865906217365197708, guid: b174b181bf3ccb8488107a574717cd78, type: 3}
   m_PrefabInstance: {fileID: 900290389562052791}
   m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
@@ -8035,3 +8058,4 @@ SceneRoots:
   - {fileID: 1121281034}
   - {fileID: 1387567899}
   - {fileID: 277385946}
+  - {fileID: 900290389562052791}
