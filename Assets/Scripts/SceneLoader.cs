@@ -1,6 +1,7 @@
 using System.Collections;
 using Unity.VisualScripting;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class SceneLoader : MonoBehaviour
@@ -10,6 +11,8 @@ public class SceneLoader : MonoBehaviour
 
     [Tooltip("Time before loading the next scene.")]
     [SerializeField] float loadingTime;
+
+    [SerializeField] UnityEvent onLoadScene;
 
     public enum ButtonType { Quit, LoadScene}
     [Tooltip("Button's purpose")] public ButtonType buttonType;
@@ -23,6 +26,7 @@ public class SceneLoader : MonoBehaviour
                 Application.Quit();
                 break;
             case ButtonType.LoadScene:
+                onLoadScene.Invoke();
                 Debug.Log("Loading Scene");
                 yield return new WaitForSeconds(loadingTime);
                 SceneManager.LoadSceneAsync(sceneToLoad);
@@ -32,5 +36,5 @@ public class SceneLoader : MonoBehaviour
         }
 
      
-    }   
+    }  
 }

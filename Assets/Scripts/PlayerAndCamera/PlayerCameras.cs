@@ -12,4 +12,9 @@ public class PlayerCameras : MonoBehaviour
     {
         instance = this;
     }
+
+    public void Prioritize(CinemachineCamera camera)
+    {
+        camera.Priority = 20;
+    }
 }
