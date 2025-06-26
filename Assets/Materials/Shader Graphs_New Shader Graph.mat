@@ -65,7 +65,7 @@ Material:
     m_Floats:
     - _AlphaClipThreshould: 0.1
     - _EdgeFade: 0.43
-    - _Erosion: 0.972
+    - _Erosion: 1
     - _ErosionScale: 200
     - _Glow: 5
     - _NormalPower: 0

@@ -6,70 +6,63 @@ public class LaserBeam
     private Vector3 pos, dir;
     private GameObject laserObj;
     private LineRenderer laser;
-    private List<Vector3> laserIndicies;
+    private List<Vector3> laserPoints;
 
     public LaserBeam(Material material)
     {
         laserObj = new GameObject("Laser Beam");
         laser = laserObj.AddComponent<LineRenderer>();
+
+        laser.material = material;
         laser.startWidth = 0.1f;
         laser.endWidth = 0.1f;
-        laser.material = material;
-        laser.startColor = material.color;
-        laser.endColor = material.color;
+        laser.alignment = LineAlignment.View;
+        laser.textureMode = LineTextureMode.Stretch;
 
-        laserIndicies = new List<Vector3>();
+        laserPoints = new List<Vector3>();
     }
 
     public void UpdateBeam(Vector3 startPos, Vector3 direction)
     {
         pos = startPos;
         dir = direction;
-        laserIndicies.Clear();
-
+        laserPoints.Clear();
         CastRay(pos, dir);
     }
 
     private void CastRay(Vector3 pos, Vector3 dir)
     {
-        laserIndicies.Add(pos);
+        laserPoints.Add(pos);
 
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 30f, 1)) // Layer mask = 1
+        if (Physics.Raycast(ray, out hit, 30f, 1)) // Use proper layer mask if needed
         {
-            CheckHit(hit, dir);
+            if (hit.collider.CompareTag("Mirror"))
+            {
+                Vector3 reflectDir = Vector3.Reflect(dir, hit.normal);
+                CastRay(hit.point, reflectDir);
+            }
+            else
+            {
+                laserPoints.Add(hit.point);
+            }
         }
         else
         {
-            laserIndicies.Add(ray.GetPoint(30f));
-            UpdateLaser();
+            laserPoints.Add(ray.GetPoint(30f));
         }
-    }
 
-    private void CheckHit(RaycastHit hitInfo, Vector3 direction)
-    {
-        if (hitInfo.collider.CompareTag("Mirror"))
-        {
-            Vector3 reflectedDir = Vector3.Reflect(direction, hitInfo.normal);
-            Vector3 hitPoint = hitInfo.point;
-
-            CastRay(hitPoint, reflectedDir);
-        }
-        else
-        {
-            laserIndicies.Add(hitInfo.point);
-            UpdateLaser();
-        }
+        UpdateLaser();
     }
 
     private void UpdateLaser()
     {
-        laser.positionCount = laserIndicies.Count;
-        for (int i = 0; i < laserIndicies.Count; i++)
+        laser.positionCount = laserPoints.Count;
+        for (int i = 0; i < laserPoints.Count; i++)
         {
-            laser.SetPosition(i, laserIndicies[i]);
+            laser.SetPosition(i, laserPoints[i]);
         }
     }
 
