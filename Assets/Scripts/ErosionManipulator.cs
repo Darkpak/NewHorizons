@@ -28,4 +28,8 @@ public class ErosionManipulator : MonoBehaviour
     {
         destroyChains = true;
     }
+    private void OnApplicationQuit()
+    {
+        erosionMaterial.SetFloat("_Erosion", 1);
+    }
 }

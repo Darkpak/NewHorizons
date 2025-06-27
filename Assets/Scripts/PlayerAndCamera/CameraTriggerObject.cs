@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using Unity.Cinemachine;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.SceneManagement;
 
 public class CameraTriggerObject : MonoBehaviour
@@ -9,21 +10,18 @@ public class CameraTriggerObject : MonoBehaviour
     [SerializeField] CinemachineCamera targetCamera;
     [SerializeField] List<GameObject> triggers = new List<GameObject>();
 
-    [SerializeField] string sceneToLoad;
-    [SerializeField] float delay;
 
-    private IEnumerator OnMouseDown()
+    public UnityEvent onClicked;
+
+    private void OnMouseDown()
     {
         if (targetCamera != null)
         {
             Debug.Log($"Going to {targetCamera}");
             CameraSwitcher.SwitchCamera(targetCamera);
-            if (sceneToLoad != null)
-            { 
-                yield return new WaitForSeconds(delay);
-                SceneManager.LoadScene(sceneToLoad);
-            }
+
             gameObject.SetActive(false);
+            onClicked.Invoke();
         }
         else
         {

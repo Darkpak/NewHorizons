@@ -1,6 +1,8 @@
+using System.Collections;
 using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class PuzzleManager : MonoBehaviour
 {
@@ -15,6 +17,9 @@ public class PuzzleManager : MonoBehaviour
     public List<Transform> pocketSlots;
     private PuzzleTile[] pocketSlotsContent;
     private bool isPuzzleSolved = false;
+
+    public UnityEvent onSolved;
+    public UnityEvent onChainsDestroyed;
 
     void Awake()
     {
@@ -213,12 +218,15 @@ public class PuzzleManager : MonoBehaviour
         }
 
         // If we get through all the checks without returning, the puzzle is solved!
-        OnPuzzleSolved();
+       StartCoroutine(OnPuzzleSolved());
     }
 
-    private void OnPuzzleSolved()
+    private IEnumerator OnPuzzleSolved()
     {
         isPuzzleSolved = true;
+        onSolved.Invoke();
+        yield return new WaitForSeconds(3f);
+        onChainsDestroyed.Invoke();
         Debug.LogWarning("--- PUZZLE SOLVED! ---");
         // This is where you will trigger your animator, open a door, play a sound, etc.
         // For example: myAnimator.SetTrigger("OnSolve");
