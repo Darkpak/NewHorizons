@@ -9,7 +9,7 @@ public class CircleRotator : MonoBehaviour
     public float rotationDuration = 0.3f;
 
     private bool isRotating = false;
-    private float targetYRotation = 0f;
+    private float targetYRotation = 15f;
     private const float rotationStep = 30f; // 360 degrees / 12 tiles
 
     /// <summary>

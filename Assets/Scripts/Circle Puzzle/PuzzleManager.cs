@@ -210,7 +210,7 @@ public class PuzzleManager : MonoBehaviour
             PuzzleTile innerTile = innerTiles[rotatedIndex];
             OuterRingTile outerTile = outerTiles[i];
 
-            // If we find even one mismatch, the puzzle is not solved.
+            // If even one mismatch, the puzzle is not solved.
             if (innerTile.runeID != outerTile.runeID)
             {
                 return;
@@ -228,7 +228,6 @@ public class PuzzleManager : MonoBehaviour
         yield return new WaitForSeconds(3f);
         onChainsDestroyed.Invoke();
         Debug.LogWarning("--- PUZZLE SOLVED! ---");
-        // This is where you will trigger your animator, open a door, play a sound, etc.
-        // For example: myAnimator.SetTrigger("OnSolve");
+        
     }
 }
