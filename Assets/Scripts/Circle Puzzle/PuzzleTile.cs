@@ -5,11 +5,17 @@ using UnityEngine;
 public class PuzzleTile : MonoBehaviour
 {
     public int runeID;
-    public Material normalMat;
-    public Material matchedMat;
     public PuzzleManager manager;
 
-    private Renderer rend;
+    [Header("Emission Settings")]
+    [Tooltip("The color of the glow when the tile is matched.")]
+    public Color matchedEmissionColor = new Color(1.0f, 0.75f, 0.3f); // Default to a warm orange glow
+
+    [Tooltip("How bright the emission glow is. Requires a Bloom effect to be visible.")]
+    [Range(0f, 10f)]
+    public float emissionIntensity = 2.5f;
+
+    private Material mat;
     private bool isExtracted = false;
 
     public bool IsExtracted => isExtracted;
@@ -20,7 +26,7 @@ public class PuzzleTile : MonoBehaviour
 
     void Awake()
     {
-        rend = GetComponent<Renderer>();
+        mat = GetComponent<Material>();
     }
 
     void Update()
@@ -137,9 +143,18 @@ public class PuzzleTile : MonoBehaviour
 
     public void SetMatchState(bool matched)
     {
-        if (rend != null && normalMat != null && matchedMat != null)
+        // Safety check
+        if (mat == null) return;
+
+        if (matched)
         {
-            rend.material = matched ? matchedMat : normalMat;
+            mat.EnableKeyword("_EMISSION");
+
+            mat.SetColor("_EmissionColor", matchedEmissionColor * emissionIntensity);
+        }
+        else
+        {
+            mat.DisableKeyword("_EMISSION");
         }
     }
 }
