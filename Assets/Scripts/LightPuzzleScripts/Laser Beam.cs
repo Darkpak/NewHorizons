@@ -37,7 +37,7 @@ public class LaserBeam
         Ray ray = new Ray(pos, dir);
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, 30f, 1)) // Use proper layer mask if needed
+        if (Physics.Raycast(ray, out hit, 300f, 1)) // Use proper layer mask if needed
         {
             if (hit.collider.CompareTag("Mirror"))
             {
@@ -51,7 +51,7 @@ public class LaserBeam
         }
         else
         {
-            laserPoints.Add(ray.GetPoint(30f));
+            laserPoints.Add(ray.GetPoint(300f));
         }
 
         UpdateLaser();
