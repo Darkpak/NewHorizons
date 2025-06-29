@@ -4,6 +4,7 @@ using UnityEngine;
 public class CircleRotator : MonoBehaviour
 {
     public PuzzleManager puzzleManager; // Assign this in the Inspector
+    public PlaySoundEffect soundEffect; // Assign this in the Inspector                     //Ico
 
     [Tooltip("How long the rotation animation takes in seconds.")]
     public float rotationDuration = 0.3f;
@@ -22,6 +23,8 @@ public class CircleRotator : MonoBehaviour
             return;
 
         targetYRotation += rotationStep;
+        //Ico sound addition                                                               //Ico
+        soundEffect.PlaySound();
         StartCoroutine(SmoothRotateTo(targetYRotation));
     }
 
@@ -35,6 +38,8 @@ public class CircleRotator : MonoBehaviour
             return;
 
         targetYRotation -= rotationStep;
+        //Ico sound addition                                                               //Ico
+        soundEffect.PlaySound();
         StartCoroutine(SmoothRotateTo(targetYRotation));
     }
 
