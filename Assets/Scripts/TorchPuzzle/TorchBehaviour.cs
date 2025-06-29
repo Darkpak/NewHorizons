@@ -14,21 +14,21 @@ public class TorchBehaviour : MonoBehaviour //, IPointerDownHandler
 
     private void OnMouseDown()
     {
-        //OnInteract();
+        TorchManager.OnClicked(TorchIndex);
     }
 
-    private void OnMouseUpAsButton()
-    {
-        OnInteract();
-    }
+    //private void OnMouseUpAsButton()
+    //{
+    //    OnInteract();
+    //}
 
     //private void Update()
     //{
-    //    if(Input.to)
+    //    if (Input.to)
     //}
 
-    private void OnInteract()
-    {
-        TorchManager.OnClicked(TorchIndex);
-    }
+    //private void OnInteract()
+    //{
+    //    TorchManager.OnClicked(TorchIndex);
+    //}
 }

@@ -15,6 +15,10 @@ public class PlayerCameras : MonoBehaviour
 
     public void Prioritize(CinemachineCamera camera)
     {
+        foreach (CinemachineCamera c in cameras)
+        {
+            c.Priority = 0;
+        }
         camera.Priority = 20;
     }
 }

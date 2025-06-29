@@ -1,10 +1,16 @@
 using DG.Tweening.Core.Easing;
+using System.Collections;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class TorchManager : MonoBehaviour
 {
     bool[] torchState = new bool[6];
     [SerializeField] bool areAllFlamed = false;
+    public UnityEvent onFlamed;
+    public UnityEvent onCameraChanged;
+    public UnityEvent onDoorPlaced;
+    [SerializeField] float delay;
     (int, int)[] connections = new (int, int)[] {
         (0,3), (1,5), (2,4), (3,2), (4,1), (5,0)
     };
@@ -38,7 +44,7 @@ public class TorchManager : MonoBehaviour
                 OnEnableDisable(connectedIndex);
             }
         }
-        CheckIfSolved();
+       StartCoroutine(CheckIfSolved());
     }
 
     void OnEnableDisable(int index)
@@ -53,18 +59,24 @@ public class TorchManager : MonoBehaviour
         }
     }
 
-    private void CheckIfSolved()
+    private IEnumerator CheckIfSolved()
     {
         foreach (bool state in torchState)
         {
             if (!state)
             {
                 areAllFlamed = false;
-                return;
+                yield break;
             }
         }
 
         areAllFlamed = true;
-        Debug.Log("Fireee");
+        yield return new WaitForSeconds(delay);
+        onFlamed.Invoke();
+        yield return new WaitForSeconds(0.5f);
+        onCameraChanged.Invoke();
+        yield return new WaitForSeconds(0.5f);
+        onDoorPlaced.Invoke();
+        
     }
 }
