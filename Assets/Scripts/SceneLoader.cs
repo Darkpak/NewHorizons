@@ -34,7 +34,10 @@ public class SceneLoader : MonoBehaviour
             default:
                 break;
         }
+    }
 
-     
-    }  
+    public void LoadScene(string sceneName)
+    {
+        SceneManager.LoadSceneAsync(sceneName);
+    }
 }
