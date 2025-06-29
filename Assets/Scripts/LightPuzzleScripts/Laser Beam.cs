@@ -39,6 +39,16 @@ public class LaserBeam
 
         if (Physics.Raycast(ray, out hit, 300f, 1)) // Use proper layer mask if needed
         {
+            if (hit.collider.CompareTag("Totem"))
+            {
+                var erosionTarget = hit.collider.GetComponent<TriggerErosion>();
+                if (erosionTarget != null)
+                {
+                    erosionTarget.TriggerErosionTarget();
+                    //Debug.Log("Triggered Erosion");
+                }
+
+            }
             if (hit.collider.CompareTag("Mirror"))
             {
                 Vector3 reflectDir = Vector3.Reflect(dir, hit.normal);
