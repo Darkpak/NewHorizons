@@ -120,7 +120,7 @@ Material:
     - _DstBlendAlpha: 0
     - _EdgeFade: 0.285
     - _EnvironmentReflections: 1
-    - _Erosion: 1
+    - _Erosion: 0.0014511974
     - _ErosionScale: 20
     - _GlossMapScale: 0
     - _Glossiness: 0

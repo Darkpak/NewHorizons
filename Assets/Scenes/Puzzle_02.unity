@@ -2900,7 +2900,7 @@ MonoBehaviour:
     FieldOfView: 74.92384
     OrthographicSize: 5
     NearClipPlane: 0.3
-    FarClipPlane: 30
+    FarClipPlane: 80
     Dutch: 0
     ModeOverride: 0
     PhysicalProperties:
@@ -4444,13 +4444,13 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1192406144}
   serializedVersion: 2
-  m_LocalRotation: {x: 0.40821788, y: -0.23456968, z: 0.10938163, w: 0.8754261}
+  m_LocalRotation: {x: 0.41383746, y: 0.1837877, z: -0.08570161, w: 0.88747734}
   m_LocalPosition: {x: 0, y: 3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 50, y: -30, z: 0}
+  m_LocalEulerAnglesHint: {x: 50, y: 23.4, z: 0}
 --- !u!114 &1192406147
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4714,7 +4714,7 @@ MonoBehaviour:
       m_PreInfinity: 2
       m_PostInfinity: 2
       m_RotationOrder: 4
-  CustomBlends: {fileID: 0}
+  CustomBlends: {fileID: 11400000, guid: a843cabfe379dcb48b500de6e3d082b4, type: 2}
 --- !u!1 &1236161953
 GameObject:
   m_ObjectHideFlags: 0
@@ -5352,6 +5352,84 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   erosion: {fileID: 225567323}
+  totemCam: {fileID: 579132542}
+  rootsCam: {fileID: 1248477103}
+  holeCam: {fileID: 1406953992}
+--- !u!1 &1406953990
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1406953991}
+  - component: {fileID: 1406953992}
+  m_Layer: 0
+  m_Name: CameraHole
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1406953991
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406953990}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0.47190008, y: 0.49974212, z: -0.38458523, w: 0.61616755}
+  m_LocalPosition: {x: 10.22, y: -0.309, z: 3.86}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2094945889}
+  m_LocalEulerAnglesHint: {x: 75, y: 77.7, z: -0.505}
+--- !u!114 &1406953992
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1406953990}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f9dfa5b682dcd46bda6128250e975f58, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  Priority:
+    Enabled: 1
+    m_Value: 0
+  OutputChannel: 1
+  StandbyUpdate: 2
+  m_StreamingVersion: 20241001
+  m_LegacyPriority: 0
+  Target:
+    TrackingTarget: {fileID: 0}
+    LookAtTarget: {fileID: 0}
+    CustomLookAtTarget: 0
+  Lens:
+    FieldOfView: 68.42813
+    OrthographicSize: 5
+    NearClipPlane: 0.3
+    FarClipPlane: 1000
+    Dutch: 0
+    ModeOverride: 0
+    PhysicalProperties:
+      GateFit: 2
+      SensorSize: {x: 21.946, y: 16.002}
+      LensShift: {x: 0, y: 0}
+      FocusDistance: 10
+      Iso: 200
+      ShutterSpeed: 0.005
+      Aperture: 16
+      BladeCount: 5
+      Curvature: {x: 2, y: 11}
+      BarrelClipping: 0.25
+      Anamorphism: 0
+  BlendHint: 0
 --- !u!198 &1426771384 stripped
 ParticleSystem:
   m_CorrespondingSourceObject: {fileID: 8802858836276283531, guid: 374bb557a0344d04fa5842adef5e501c, type: 3}
@@ -6420,7 +6498,7 @@ MeshRenderer:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1648668259}
-  m_Enabled: 1
+  m_Enabled: 0
   m_CastShadows: 1
   m_ReceiveShadows: 1
   m_DynamicOccludee: 1
@@ -7620,6 +7698,7 @@ Transform:
   - {fileID: 846465931}
   - {fileID: 1248477102}
   - {fileID: 579132541}
+  - {fileID: 1406953991}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2108844668

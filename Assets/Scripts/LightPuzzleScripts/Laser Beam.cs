@@ -1,4 +1,5 @@
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 
 public class LaserBeam 
@@ -7,6 +8,8 @@ public class LaserBeam
     private GameObject laserObj;
     private LineRenderer laser;
     private List<Vector3> laserPoints;
+
+    bool isSolved;
 
     public LaserBeam(Material material)
     {
@@ -41,12 +44,17 @@ public class LaserBeam
         {
             if (hit.collider.CompareTag("Totem"))
             {
-                var erosionTarget = hit.collider.GetComponent<TriggerErosion>();
-                if (erosionTarget != null)
+                if (!isSolved)
                 {
-                    erosionTarget.TriggerErosionTarget();
-                    //Debug.Log("Triggered Erosion");
+                    var erosionTarget = hit.collider.GetComponent<TriggerErosion>();
+                    if (erosionTarget != null)
+                    {
+                        erosionTarget.TriggerErosionTarget();
+                        isSolved = true;
+                        //Debug.Log("Triggered Erosion");
+                    }
                 }
+
 
             }
             if (hit.collider.CompareTag("Mirror"))
