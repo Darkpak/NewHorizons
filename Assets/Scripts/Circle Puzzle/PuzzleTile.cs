@@ -15,7 +15,7 @@ public class PuzzleTile : MonoBehaviour
     [Range(0f, 10f)]
     public float emissionIntensity = 2.5f;
 
-    private Material mat;
+    private MeshRenderer rend;
     private bool isExtracted = false;
 
     public bool IsExtracted => isExtracted;
@@ -26,7 +26,7 @@ public class PuzzleTile : MonoBehaviour
 
     void Awake()
     {
-        mat = GetComponent<Material>();
+        rend = GetComponent<MeshRenderer>();
     }
 
     void Update()
@@ -95,34 +95,47 @@ public class PuzzleTile : MonoBehaviour
         );
     }
 
-    void TryReinsert(Transform targetTransform)
+    void TryReinsert(Transform ignoredTarget)
     {
         manager.OnTileRemovedFromPocket(myPocketIndex);
         myPocketIndex = -1;
 
-        int targetIndex = manager.innerPositions.IndexOf(targetTransform);
+        int targetIndex = manager.innerPositions.IndexOf(ignoredTarget);
         if (targetIndex == -1)
             return;
 
-        StartCoroutine(
-            AnimateToTransform(
-                targetTransform.position,
-                () =>
-                {
-                    isExtracted = false;
-                    manager.InsertInnerTile(this, targetIndex);
+        Transform realTarget = manager.innerPositions[targetIndex];
 
-                    // guarantee a perfect fit.
-                    transform.SetParent(manager.innerCircle);
-                    transform.localPosition = targetTransform.localPosition;
-                    transform.localScale = targetTransform.localScale;
-
-                    manager.CheckAlignment();
-                    manager.CheckWin();
-                }
-            )
-        );
+        StartCoroutine(AnimateOnReinsert(realTarget, targetIndex));
     }
+
+    IEnumerator AnimateOnReinsert(Transform slotTransform, int slotIndex)
+    {
+        IsAnyTileMoving = true;
+        Vector3 startPos = transform.position;
+        Vector3 endPos = slotTransform.position;
+        float duration = 0.2f;
+        float time = 0f;
+
+        while (time < duration)
+        {
+            transform.position = Vector3.Lerp(startPos, endPos, time / duration);
+            time += Time.deltaTime;
+            yield return null;
+        }
+        transform.position = endPos;
+
+        isExtracted = false;
+        manager.InsertInnerTile(this, slotIndex);
+        transform.SetParent(manager.innerCircle);
+        transform.localPosition = slotTransform.localPosition;
+        transform.localScale = slotTransform.localScale;
+
+        manager.CheckAlignment();
+        manager.CheckWin();
+        IsAnyTileMoving = false;
+    }
+
 
     IEnumerator AnimateToTransform(Vector3 targetPos, System.Action onComplete)
     {
@@ -143,18 +156,18 @@ public class PuzzleTile : MonoBehaviour
 
     public void SetMatchState(bool matched)
     {
-        // Safety check
-        if (mat == null) return;
+        if (rend == null) return;
 
         if (matched)
         {
-            mat.EnableKeyword("_EMISSION");
-
-            mat.SetColor("_EmissionColor", matchedEmissionColor * emissionIntensity);
+            Color finalEmission = matchedEmissionColor * emissionIntensity;
+            rend.material.SetColor("_EmissionColor", finalEmission);
         }
         else
         {
-            mat.DisableKeyword("_EMISSION");
+            rend.material.SetColor("_EmissionColor", Color.black);
         }
+
     }
+
 }

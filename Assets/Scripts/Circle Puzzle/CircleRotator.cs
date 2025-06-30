@@ -11,11 +11,14 @@ public class CircleRotator : MonoBehaviour
 
     private bool isRotating = false;
     private float targetYRotation = 0f;
-    private const float rotationStep = 30f; // 360 degrees / 12 tiles
+    private const float rotationStep = 30f;
 
-    /// <summary>
-    /// Public method to be called by a 'Rotate Right' UI Button.
-    /// </summary>
+    private void Start()
+    {
+        float currentY = transform.localEulerAngles.y;
+        targetYRotation = currentY + 15f;
+    }
+
     public void RotateRight()
     {
         // Ignore if already rotating
@@ -28,9 +31,6 @@ public class CircleRotator : MonoBehaviour
         StartCoroutine(SmoothRotateTo(targetYRotation));
     }
 
-    /// <summary>
-    /// Public method to be called by a 'Rotate Left' UI Button.
-    /// </summary>
     public void RotateLeft()
     {
         // Ignore if already rotating
