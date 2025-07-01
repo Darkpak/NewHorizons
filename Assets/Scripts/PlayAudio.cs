@@ -20,8 +20,12 @@ public class PlaySoundEffect : MonoBehaviour
             Debug.LogWarning("SoundEffect not assigned.");
             return;
         }
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(soundEffect);
+        }
 
-        audioSource.PlayOneShot(soundEffect);
+        
     }
 }
 
