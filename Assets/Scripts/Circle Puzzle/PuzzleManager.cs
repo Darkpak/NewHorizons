@@ -21,6 +21,8 @@ public class PuzzleManager : MonoBehaviour
     public UnityEvent onSolved;
     public UnityEvent onChainsDestroyed;
 
+    [SerializeField] Animator doorAnimator;
+
     void Awake()
     {
         if (pocketSlots != null)
@@ -226,14 +228,17 @@ public class PuzzleManager : MonoBehaviour
         }
 
         // If we get through all the checks without returning, the puzzle is solved!
-       StartCoroutine(OnPuzzleSolved());
+        //StartCoroutine(OnPuzzleSolved());
+        //OnPuzzleSolved();
+        isPuzzleSolved = true;
+        doorAnimator.SetBool("Activate", true);
+        
     }
 
-    private IEnumerator OnPuzzleSolved()
-    {
-        isPuzzleSolved = true;
+    public void OnPuzzleSolved()
+    {      
         onSolved.Invoke();
-        yield return new WaitForSeconds(3f);
+        //yield return new WaitForSeconds(3f);
         onChainsDestroyed.Invoke();
         Debug.LogWarning("--- PUZZLE SOLVED! ---");
         
