@@ -34,6 +34,11 @@ public class ErosionManipulator : MonoBehaviour
     }
     private void OnApplicationQuit()
     {
+        FixErosionOnExit();
+    }
+
+    public void FixErosionOnExit()
+    {
         erosionMaterial.SetFloat("_Erosion", 1);
     }
 

@@ -990,7 +990,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 9051795650431572654, guid: 12690c0ccd473864aa967bf9867cead7, type: 3}
   m_PrefabInstance: {fileID: 1016153252}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 743725227}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c2f8ab6e180609e45916e4e355f4b96a, type: 3}
@@ -2672,6 +2672,11 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &743725227 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1677627327361925143, guid: 12690c0ccd473864aa967bf9867cead7, type: 3}
+  m_PrefabInstance: {fileID: 1016153252}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &753153601
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -5155,6 +5160,42 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: Going
           m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 5521564874960841040}
+        m_TargetAssemblyTypeName: PlaySoundEffect, Assembly-CSharp
+        m_MethodName: PlaySound
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Going
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 263865830}
+        m_TargetAssemblyTypeName: ErosionManipulator, Assembly-CSharp
+        m_MethodName: FixErosionOnExit
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Going
+          m_BoolArgument: 1
+        m_CallState: 2
+      - m_Target: {fileID: 743725227}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: Going
+          m_BoolArgument: 0
         m_CallState: 2
   buttonType: 1
 --- !u!114 &1296630158
@@ -10659,7 +10700,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2553cd9397dee40a0474834683a903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 0f8265eb3470b3442a605caa6e9587d4, type: 3}
+  soundEffect: {fileID: 8300000, guid: fbaeb1167cf8b494e8eaece3f0804a40, type: 3}
 --- !u!82 &4867919757053130889
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10672,8 +10713,8 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_Resource: {fileID: 0}
-  m_PlayOnAwake: 1
-  m_Volume: 1
+  m_PlayOnAwake: 0
+  m_Volume: 0.342
   m_Pitch: 1
   Loop: 0
   Mute: 0
@@ -10907,7 +10948,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ab2553cd9397dee40a0474834683a903, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundEffect: {fileID: 8300000, guid: 1de796b853c2aba4aa35bf4984305942, type: 3}
+  soundEffect: {fileID: 8300000, guid: c11aa57ccaa80ff44834f51b43307d55, type: 3}
 --- !u!82 &5521564874960841041
 AudioSource:
   m_ObjectHideFlags: 0
@@ -10918,8 +10959,8 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 0}
-  m_Resource: {fileID: 0}
+  m_audioClip: {fileID: 8300000, guid: c11aa57ccaa80ff44834f51b43307d55, type: 3}
+  m_Resource: {fileID: 8300000, guid: c11aa57ccaa80ff44834f51b43307d55, type: 3}
   m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
