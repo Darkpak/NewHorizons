@@ -22,12 +22,12 @@ public class SceneLoader : MonoBehaviour
         switch (buttonType)
         {
             case ButtonType.Quit:
-                Debug.Log("Quit Game");
+                //Debug.Log("Quit Game");
                 Application.Quit();
                 break;
             case ButtonType.LoadScene:
                 onLoadScene.Invoke();
-                Debug.Log("Loading Scene");
+                //Debug.Log("Loading Scene");
                 yield return new WaitForSeconds(loadingTime);
                 SceneManager.LoadSceneAsync(sceneToLoad);
                 break;
@@ -40,6 +40,11 @@ public class SceneLoader : MonoBehaviour
     {
         StartCoroutine(Wait(sceneName));
         
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
     }
 
     IEnumerator Wait(string sceneName)
