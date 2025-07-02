@@ -38,6 +38,13 @@ public class SceneLoader : MonoBehaviour
 
     public void LoadScene(string sceneName)
     {
+        StartCoroutine(Wait(sceneName));
+        
+    }
+
+    IEnumerator Wait(string sceneName)
+    {
+        yield return new WaitForSeconds(loadingTime);
         SceneManager.LoadSceneAsync(sceneName);
     }
 }
