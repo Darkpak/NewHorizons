@@ -7,7 +7,7 @@ public class GetRotated : MonoBehaviour
 
     public void GetObjectToRotate(GameObject go,ParticleSystem ps)
     {
-        if(particleSystem != null)
+        if(particleSystem != null&&objectToRotate!=go)
         {
             particleSystem.gameObject.SetActive(false);
         }
