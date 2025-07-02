@@ -13,11 +13,11 @@ public class CircleRotator : MonoBehaviour
     private float targetYRotation = 0f;
     private const float rotationStep = 30f;
 
-    private void Start()
-    {
-        float currentY = transform.localEulerAngles.y;
-        targetYRotation = currentY + 15f;
-    }
+    //private void Start()
+    //{
+    //    float currentY = transform.localEulerAngles.y;
+    //    targetYRotation = currentY + 15f;
+    //}
 
     public void RotateRight()
     {
@@ -48,7 +48,7 @@ public class CircleRotator : MonoBehaviour
         isRotating = true;
 
         Quaternion startRotation = transform.localRotation;
-        Quaternion endRotation = Quaternion.Euler(0, targetAngle - 15, 0);
+        Quaternion endRotation = Quaternion.Euler(0, targetAngle, 0);
         float time = 0;
 
         while (time < rotationDuration)

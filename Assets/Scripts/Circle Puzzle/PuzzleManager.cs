@@ -47,7 +47,10 @@ public class PuzzleManager : MonoBehaviour
         )
             return;
 
-        int offset = GetRotationOffset();
+        float rotationY = innerCircle.localEulerAngles.y;
+        int offset = Mathf.RoundToInt(rotationY / 30f) % innerPositions.Count;
+        if (offset < 0)
+            offset += innerPositions.Count;
 
         HashSet<PuzzleTile> matchedTilesThisFrame = new HashSet<PuzzleTile>();
 
@@ -140,26 +143,14 @@ public class PuzzleManager : MonoBehaviour
     {
         if (innerCircle == null || innerPositions.Count == 0)
             return -1;
-        int offset = GetRotationOffset();
+        float rotationY = innerCircle.localEulerAngles.y;
+        int offset = Mathf.RoundToInt(rotationY / 30f) % innerPositions.Count;
         int rotatedIndex = (outerIndex + offset) % innerPositions.Count;
         if (rotatedIndex < 0)
             rotatedIndex += innerPositions.Count;
         return rotatedIndex;
     }
 
-    private int GetRotationOffset()
-    {
-        if (innerCircle == null || innerPositions.Count == 0)
-            return 0;
-
-        float rawRotation = innerCircle.localEulerAngles.y;
-        float adjustedRotation = rawRotation - 15f; // <- correction
-        int offset = Mathf.RoundToInt(adjustedRotation / 30f) % innerPositions.Count;
-        if (offset < 0)
-            offset += innerPositions.Count;
-
-        return offset;
-    }
 
     public void RemoveInnerTile(PuzzleTile tile)
     {
@@ -210,7 +201,9 @@ public class PuzzleManager : MonoBehaviour
         }
 
         // 3. Finally, check if every single tile is correctly aligned.
-        int offset = GetRotationOffset();
+        float rotationY = innerCircle.localEulerAngles.y;
+        int offset = Mathf.RoundToInt(rotationY / 30f) % innerPositions.Count;
+        if (offset < 0) offset += innerPositions.Count;
 
         for (int i = 0; i < outerTiles.Length; i++)
         {
