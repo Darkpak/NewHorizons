@@ -21902,6 +21902,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bc22f31c7a7d1404389d02d71dbd6ae0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  fadeDuration: 2
+  disableInScenes:
+  - Puzzle_03
 --- !u!4 &1170426271
 Transform:
   m_ObjectHideFlags: 0

@@ -6,6 +6,7 @@ public class TorchBehaviour : MonoBehaviour //, IPointerDownHandler
 {
     public TorchManager TorchManager;
     public int TorchIndex;
+    public PlaySoundEffect sound_effect;
 
     //public void OnPointerDown(PointerEventData eventData)
     //{
@@ -15,6 +16,7 @@ public class TorchBehaviour : MonoBehaviour //, IPointerDownHandler
     private void OnMouseDown()
     {
         TorchManager.OnClicked(TorchIndex);
+        sound_effect.PlaySound();
     }
 
     //private void OnMouseUpAsButton()
