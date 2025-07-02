@@ -5131,6 +5131,7 @@ GameObject:
   - component: {fileID: 1258703261}
   - component: {fileID: 1258703263}
   - component: {fileID: 1258703262}
+  - component: {fileID: 1258703264}
   m_Layer: 0
   m_Name: Door (1)
   m_TagString: Untagged
@@ -5206,6 +5207,28 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1258703260}
   m_Mesh: {fileID: 2619086233303812490, guid: b153b4dee4996094395975cd0a87fddf, type: 3}
+--- !u!64 &1258703264
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1258703260}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 5
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 2619086233303812490, guid: b153b4dee4996094395975cd0a87fddf, type: 3}
 --- !u!1 &1269297648 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 1143609754758276806, guid: 12690c0ccd473864aa967bf9867cead7, type: 3}
@@ -5236,7 +5259,7 @@ Transform:
   m_GameObject: {fileID: 1290659899}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -0.2909, y: -0.0159, z: 0.0566}
+  m_LocalPosition: {x: -0.315, y: -0.027, z: 0.0566}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7885,6 +7908,7 @@ MonoBehaviour:
   - {fileID: 74352646}
   - {fileID: 1629563223}
   - {fileID: 1998872133}
+  prioritizableCamera: {fileID: 0}
 --- !u!1 &1906839811
 GameObject:
   m_ObjectHideFlags: 0

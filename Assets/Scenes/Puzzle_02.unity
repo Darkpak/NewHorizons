@@ -2746,7 +2746,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   Priority:
     Enabled: 1
-    m_Value: 0
+    m_Value: 10
   OutputChannel: 1
   StandbyUpdate: 2
   m_StreamingVersion: 20241001
@@ -2957,6 +2957,10 @@ PrefabInstance:
     - target: {fileID: 6562902788442619567, guid: 303054502e5b0e64c8c008db9e8597a6, type: 3}
       propertyPath: m_Name
       value: WhiteFlares (1)
+      objectReference: {fileID: 0}
+    - target: {fileID: 6562902788442619567, guid: 303054502e5b0e64c8c008db9e8597a6, type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 7997458912114468112, guid: 303054502e5b0e64c8c008db9e8597a6, type: 3}
       propertyPath: m_LocalScale.x
@@ -3573,6 +3577,7 @@ MonoBehaviour:
   cameras:
   - {fileID: 2108844669}
   - {fileID: 846465932}
+  prioritizableCamera: {fileID: 579132542}
 --- !u!4 &782822589
 Transform:
   m_ObjectHideFlags: 0
@@ -5343,6 +5348,11 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 2528988894189217778, guid: 374bb557a0344d04fa5842adef5e501c, type: 3}
   m_PrefabInstance: {fileID: 469976225}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1119627320 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 6562902788442619567, guid: 303054502e5b0e64c8c008db9e8597a6, type: 3}
+  m_PrefabInstance: {fileID: 648598306}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1133840078 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 3211768756804281478, guid: 37380212a864b1945b978800a3b6ebb6, type: 3}
@@ -5818,7 +5828,7 @@ Camera:
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
-  field of view: 60.000004
+  field of view: 68.42813
   orthographic: 0
   orthographic size: 5
   m_Depth: -1
@@ -5844,8 +5854,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1235970517}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0.50033015, z: 0, w: 0.8658347}
-  m_LocalPosition: {x: 24.14, y: 8.82, z: 9.98}
+  m_LocalRotation: {x: 0.2026446, y: 0.48887342, z: -0.12265682, w: 0.8395792}
+  m_LocalPosition: {x: 40.31439, y: 12.340674, z: 23.450142}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -6908,6 +6918,18 @@ MonoBehaviour:
           m_FloatArgument: 0
           m_StringArgument: 
           m_BoolArgument: 0
+        m_CallState: 2
+      - m_Target: {fileID: 1119627320}
+        m_TargetAssemblyTypeName: UnityEngine.GameObject, UnityEngine
+        m_MethodName: SetActive
+        m_Mode: 6
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 1
         m_CallState: 2
 --- !u!1 &1406953990
 GameObject:
