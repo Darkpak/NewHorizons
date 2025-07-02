@@ -16,8 +16,8 @@ MonoBehaviour:
   - From: Camera1
     To: CameraDoor
     Blend:
-      Style: 4
-      Time: 0.4
+      Style: 2
+      Time: 1.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []
@@ -29,6 +29,28 @@ MonoBehaviour:
     Blend:
       Style: 1
       Time: 3.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: CameraDoor
+    To: Camera0
+    Blend:
+      Style: 1
+      Time: 3.5
+      CustomCurve:
+        serializedVersion: 2
+        m_Curve: []
+        m_PreInfinity: 0
+        m_PostInfinity: 0
+        m_RotationOrder: 0
+  - From: CameraDoor
+    To: CameraPortal
+    Blend:
+      Style: 1
+      Time: 1.5
       CustomCurve:
         serializedVersion: 2
         m_Curve: []

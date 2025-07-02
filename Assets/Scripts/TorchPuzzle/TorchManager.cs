@@ -73,9 +73,9 @@ public class TorchManager : MonoBehaviour
         areAllFlamed = true;
         yield return new WaitForSeconds(delay);
         onFlamed.Invoke();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(1.5f);
         onCameraChanged.Invoke();
-        yield return new WaitForSeconds(0.5f);
+        yield return new WaitForSeconds(2.5f);
         onDoorPlaced.Invoke();
         
     }
