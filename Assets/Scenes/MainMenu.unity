@@ -36649,7 +36649,7 @@ Canvas:
   m_AdditionalShaderChannelsFlag: 25
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_TargetDisplay: 0
 --- !u!224 &1825944921
 RectTransform:
@@ -40524,6 +40524,10 @@ PrefabInstance:
       propertyPath: sceneFadeDuration
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 3512845708638189157, guid: 8f68e2a65c0cbb84dac58129ee96f0e6, type: 3}
+      propertyPath: m_SortingOrder
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3656795882889919177, guid: 8f68e2a65c0cbb84dac58129ee96f0e6, type: 3}
       propertyPath: m_LocalPosition.x
       value: -1.863189
@@ -40570,7 +40574,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4477189238296059211, guid: 8f68e2a65c0cbb84dac58129ee96f0e6, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6239644296950077060, guid: 8f68e2a65c0cbb84dac58129ee96f0e6, type: 3}
       propertyPath: m_IsActive
